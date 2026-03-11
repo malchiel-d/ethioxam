@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>subject Quiz Interface</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            padding: 40px;
+            margin: 0;
+            color: #333;
+        }
+
+        .quiz-wrapper {
+            width: 100%;
+            max-width: 900px;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            position: relative;
+        }
+
+        .timer-container {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 15px;
+        }
+
+        .timer-box {
+            border: 1px solid #c0c0c0;
+            padding: 4px 12px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+        
+        .question-card {
+            background-color: #e7f3ff;
+            border-radius: 4px;
+            padding: 25px;
+            margin-bottom: 40px;
+        }
+
+        .question-text {
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        
+        .options-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            cursor: pointer;
+        }
+
+        .option-item input[type="radio"] {
+            margin-right: 12px;
+            cursor: pointer;
+        }
+
+        .option-label {
+            font-size: 0.95rem;
+        }
+
+        .clear-choice {
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #0056b3;
+            text-decoration: none;
+        }
+
+        .clear-choice:hover {
+            text-decoration: underline;
+        }
+        .nav-footer {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: background 0.2s;
+        }
+
+        .btn-prev {
+            background-color: #f1f1f1;
+            color: #555;
+            border: 1px solid #ccc;
+        }
+
+        .btn-next {
+            background-color: #0056b3;
+            color: white;
+        }
+
+        .btn-next:hover {
+            background-color: #004494;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="quiz-wrapper">
+        
+        <div class="timer-container">
+            <div class="timer-box">
+                Time left 00:00:00
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="question-text">
+               What is 1 + 1
+            </div>
+
+            <form id="quizForm">
+                <div class="options-list">
+                    <label class="option-item">
+                        <input type="radio" name="answer" value="a">
+                        <span class="option-label">a. 3</span>
+                    </label>
+
+                    <label class="option-item">
+                        <input type="radio" name="answer" value="b">
+                        <span class="option-label">b. 5</span>
+                    </label>
+
+                    <label class="option-item">
+                        <input type="radio" name="answer" value="c" >
+                        <span class="option-label">c. 2</span>
+                    </label>
+
+                    <label class="option-item">
+                        <input type="radio" name="answer" value="d">
+                        <span class="option-label">d. 11</span>
+                    </label>
+                </div>
+            </form>
+
+            <a href="#" class="clear-choice">Clear my choice</a>
+        </div>
+
+        <div class="nav-footer">
+            <button class="btn btn-prev">Previous page</button>
+            <button class="btn btn-next">Next page</button>
+        </div>
+
+    </div>
+
+</body>
+</html>

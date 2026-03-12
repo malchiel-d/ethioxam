@@ -4,8 +4,8 @@ to make the answers flexible
  - track answer instead of the score
  - convert saved answer 
  */
--
-let currentQuestion = Number(localStorage.getItem("questionIndex")) || 0;
+
+/*let currentQuestion = Number(localStorage.getItem("questionIndex")) || 0;
 let userAnswers = JSON.parse(localStorage.getItem("savedAnswers")) || {};
 
 function loadQuestion() {
@@ -42,3 +42,4 @@ function previousQuestion() {
 function startExam() {
     loadQuestion();
 }
+*/

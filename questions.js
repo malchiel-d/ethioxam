@@ -1,5 +1,5 @@
 //60 math questions
-const questions = [
+/*const questions = [
   // --- Sequences and Series ---
   {
     id: 1,
@@ -436,3 +436,4 @@ const questions = [
     answer: "B"
   }
 ];
+*/

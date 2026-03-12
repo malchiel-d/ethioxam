@@ -17,7 +17,7 @@
         </div>
 
         <div class="question-card">
-            <div class="question-text">
+            <div class="question-text" id="questionDiv">
               Question goes here
             </div>
 
@@ -57,12 +57,62 @@
    <!-- <script src="questions.js"></script>
     <script src="script.js"></script>  --> 
     <script>
-    const clearBtn = document.querySelector("#clearBtn");
-     let choices = document.querySelectorAll("#quizForm input");
-     clearBtn.addEventListener("click",function(){
-         window.event.preventDefault();
-         choices.forEach(radio => radio.checked = false);
-     });
+    //questions
+    const quizData = [
+      {
+        id: 1,
+        question: "What is the capital of France?",
+        choices: { A: "Paris", B: "London", C: "Berlin", D: "Madrid" },
+        correct: "A"
+      },
+      {
+        id: 2,
+        question: "Which planet is known as the Red Planet?",
+        choices: { A: "Earth", B: "Mars", C: "Jupiter", D: "Venus" },
+        correct: "B"
+      },
+      {
+        id: 3,
+        question: "What is 5 + 7?",
+        choices: { A: "10", B: "11", C: "12", D: "13" },
+        correct: "C"
+      }
+    ]
+    let currentQuestionIndex = 0;
+    let currentQuestion = quizData[currentQuestionIndex];
+    //clear-button
+   document.querySelector('#clearBtn').onclick = e => {
+    e.preventDefault();
+    document.querySelectorAll('#quizForm input').forEach(i => i.checked = false);
+   };
+    
+    //next and prev btn    
+    let nextBtn = document.querySelector('#nextBtn').addEventListener("click",next);
+    let previousBtn = document.querySelector('#previousBtn').addEventListener("click",previous);   
+    
+    function next(){
+        currentQuestionIndex++ ;
+        console.log(currentQuestionIndex);
+    }
+    
+     function previous(){    
+        currentQuestionIndex-- ;
+        console.log(currentQuestionIndex)
+        
+    }
+    next()
+    previous()
+    //adding quiz data to screen
+    let questionHtml = document.querySelector('.quiz-wrapper #questionDiv');
+    let choiceHtml = document.querySelectorAll('.option-label');    
+    
+          //add question
+    questionHtml.textContent = currentQuestion.question;
+          //add the choioces
+    Object.values(currentQuestion.choices).forEach((choice, index) => {
+    choiceHtml[index].textContent = String.fromCharCode(97 + index) + ". " + choice;
+});
+    
     </script>
 </body>
 </html>

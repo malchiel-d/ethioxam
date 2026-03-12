@@ -83,6 +83,7 @@ body {
         .clear-choice:active{
           transform: scale(0.97);
         }
+
         .nav-footer {
             display: flex;
             justify-content: space-between;

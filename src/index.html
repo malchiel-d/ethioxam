@@ -57,7 +57,12 @@
    <!-- <script src="questions.js"></script>
     <script src="script.js"></script>  --> 
     <script>
-
+    const clearBtn = document.querySelector("#clearBtn");
+     let choices = document.querySelectorAll("#quizForm input");
+     clearBtn.addEventListener("click",function(){
+         window.event.preventDefault();
+         choices.forEach(radio => radio.checked = false);
+     });
     </script>
 </body>
 </html>

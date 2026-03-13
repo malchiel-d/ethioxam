@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  
+  <button class="btn btn-start">Start</button>
        <div class="quiz-wrapper">
         
         <div class="timer-container">
@@ -81,7 +81,8 @@
     let currentQuestionIndex = 0;
     let currentQuestion = quizData[currentQuestionIndex];
     //clear-button
-   document.querySelector('#clearBtn').onclick = e => {
+   
+document.querySelector('#clearBtn').onclick = e => {
     e.preventDefault();
     document.querySelectorAll('#quizForm input').forEach(i => i.checked = false);
    };
@@ -100,8 +101,6 @@
         console.log(currentQuestionIndex)
         
     }
-    next()
-    previous()
     //adding quiz data to screen
     let questionHtml = document.querySelector('.quiz-wrapper #questionDiv');
     let choiceHtml = document.querySelectorAll('.option-label');    

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <button class="btn btn-start">Start</button>
+  <button class="btn btn-start" id="start-btn">Start</button>
        <div class="quiz-wrapper">
         
         <div class="timer-container">
@@ -80,6 +80,12 @@
     ]
     let currentQuestionIndex = 0;
     let currentQuestion = quizData[currentQuestionIndex];
+    //start-btn
+    document.querySelector('#start-btn').addEventListener("click",startExam());
+    function startExam(){
+        let startBtn = document.querySelector('#start-btn');
+        startBtn.style.display = none;
+    }
     //clear-button
    
 document.querySelector('#clearBtn').onclick = e => {

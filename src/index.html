@@ -79,8 +79,19 @@
       }
     ]
     let currentQuestionIndex = 0;
-    let currentQuestion = quizData[currentQuestionIndex];
+    function render(){
+        let currentQuestion = quizData[currentQuestionIndex];
+       //adding quiz data to screen
+    let questionHtml = document.querySelector('.quiz-wrapper #questionDiv');
+    let choiceHtml = document.querySelectorAll('.option-label');    
     
+          //add question
+    questionHtml.textContent = currentQuestion.question;
+          //add the choioces
+    Object.values(currentQuestion.choices).forEach((choice, index) => {
+    choiceHtml[index].textContent = String.fromCharCode(97 + index) + ". " + choice;
+});
+    }
     //start-btn
     document.querySelector('#start-btn').addEventListener("click",startExam);
     function startExam(){
@@ -88,6 +99,7 @@
         let quizWrapper = document.querySelector('.quiz-wrapper');
         startBtn.style.display = "none";
         quizWrapper.style.display = "block";
+        render();
     }
     
     //clear-button   
@@ -101,27 +113,20 @@ document.querySelector('#clearBtn').onclick = e => {
     let previousBtn = document.querySelector('#previousBtn').addEventListener("click",previous);   
     
     function next(){
+        if(currentQuestionIndex < quizData.length-1){
         currentQuestionIndex++ ;
         console.log(currentQuestionIndex);
+        render()
+        }; 
     }
     
-     function previous(){    
+     function previous(){   
+        if(currentQuestionIndex > 0 ){
         currentQuestionIndex-- ;
-        console.log(currentQuestionIndex)
-        
+        console.log(currentQuestionIndex);
+        render()
+        };
     }
-    
-    //adding quiz data to screen
-    let questionHtml = document.querySelector('.quiz-wrapper #questionDiv');
-    let choiceHtml = document.querySelectorAll('.option-label');    
-    
-          //add question
-    questionHtml.textContent = currentQuestion.question;
-          //add the choioces
-    Object.values(currentQuestion.choices).forEach((choice, index) => {
-    choiceHtml[index].textContent = String.fromCharCode(97 + index) + ". " + choice;
-});
-    
     </script>
 </body>
 </html>

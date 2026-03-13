@@ -80,13 +80,13 @@
     ]
     let currentQuestionIndex = 0;
     function render(){
-        let currentQuestion = quizData[currentQuestionIndex];
+        let currentQuestion =  quizData[currentQuestionIndex];
        //adding quiz data to screen
     let questionHtml = document.querySelector('.quiz-wrapper #questionDiv');
     let choiceHtml = document.querySelectorAll('.option-label');    
     
           //add question
-    questionHtml.textContent = currentQuestion.question;
+    questionHtml.textContent = `${currentQuestionIndex+1}. ${currentQuestion.question}`;
           //add the choioces
     Object.values(currentQuestion.choices).forEach((choice, index) => {
     choiceHtml[index].textContent = String.fromCharCode(97 + index) + ". " + choice;

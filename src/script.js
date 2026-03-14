@@ -16,12 +16,30 @@ choices: { a: "10", b: "11", c: "12", d: "13" },
 correct: "c"
 }
 ]
+//saving user answers 
+     //null,null,null
+let userAnswers = Array(quizData.length).fill(null);
+//add answers from the form 
+const form = document.querySelector("#quizForm");
 
+form.addEventListener("change", function(event) {
+    userAnswers[currentQuestionIndex] = event.target.value;
+});
 let currentQuestionIndex = 0;
-    
-function render(){
-let currentQuestion =  quizData[currentQuestionIndex];
 
+function render(){
+let currentQuestion =  quizData[currentQuestionIndex];   
+let savedAnswer = userAnswers[currentQuestionIndex]; 
+//clear inputs 
+document.querySelectorAll('#quizForm input').forEach(i => i.checked = false);
+    
+//fill inputs
+if(savedAnswer !== null){
+let matchedRadio = document.querySelector(`input[value="${savedAnswer}"]`);
+matchedRadio.checked = true;
+}
+
+    
 //adding quiz data to screen
 let questionHtml = document.querySelector('.quiz-wrapper #questionDiv');
 let choiceHtml = document.querySelectorAll('.option-label');     
@@ -56,14 +74,12 @@ let previousBtn = document.querySelector('#previousBtn').addEventListener("click
 function next(){
 if(currentQuestionIndex < quizData.length-1){
 currentQuestionIndex++ ;
-console.log(currentQuestionIndex);
 render()
 }; 
 }   
 function previous(){   
 if(currentQuestionIndex > 0 ){
 currentQuestionIndex-- ;
-console.log(currentQuestionIndex);
 render()
 };
 }

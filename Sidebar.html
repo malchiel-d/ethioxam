@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz app interface</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        
+        .page-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+        }
+
+        
+        .timer-header {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+
+        .timer-box {
+            border: 1px solid #c0c0c0;
+            padding: 4px 12px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+        
+        .main-content-row {
+            display: flex;
+            gap: 20px; 
+            align-items: flex-start;
+        }
+
+        
+        .question-column {
+            flex: 1; 
+            min-width: 0; 
+        }
+
+        
+        .sidebar {
+            flex: 0 0 280px; 
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        
+        .question-card {
+            background-color: #e7f3ff; 
+            border-radius: 4px;
+            padding: 25px;
+            margin-bottom: 20px; 
+        }
+
+        .question-text {
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .options-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            cursor: pointer;
+        }
+
+        .option-item input[type="radio"] {
+            margin-right: 12px;
+            cursor: pointer;
+        }
+
+        .option-label {
+            font-size: 0.95rem;
+        }
+
+        .clear-choice {
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #0056b3;
+            text-decoration: none;
+            font-weight: bolder;
+        }
+
+        .clear-choice:hover {
+            text-decoration: underline;
+        }
+
+       
+        .sidebar h3 {
+            margin: 0 0 15px 0;
+            font-size: 1.1rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr); 
+            gap: 5px;
+            margin-top: 10px;
+             transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+        }
+
+        .grid-item {
+            border: 1px solid #333;
+            aspect-ratio: 1/1; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+            border-radius: 10px;
+            transform: translateY(-5px);   
+  box-shadow: 0 8px 18px rgba(196, 195, 195, 0.699);
+  transition:0.3s ease-in-out;
+  font-weight: bold;
+        
+     }
+
+     .grid-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+     }
+
+       
+        .grid-item.active {
+            border-width: 2px;
+            font-weight: bolder;
+        }
+
+    
+        .nav-footer {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 20px;
+    
+        }
+       
+        .btn {
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: background 0.5s;
+        }
+
+        .btn-prev {
+            background-color:  #0056b3;
+            color: #ffffff;
+            border: 1px solid #ccc;
+        }
+
+        .btn-next {
+            background-color: #0056b3;
+            color: white;
+             border: 1px solid #ccc;
+        }
+
+        .btn-next:hover {
+            background-color: #004494;
+        }
+        .btn-prev:hover {
+            background-color: #004494;
+        }
+
+       
+        @media (max-width: 768px) {
+            .main-content-row {
+                flex-direction: column; 
+            }
+            
+            .question-column {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .sidebar {
+                width: 100%;
+                box-sizing: border-box;
+                margin-top: 20px; 
+            }
+
+            .overview-grid {
+                grid-template-columns: repeat(10, 1fr); 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-wrapper">
+        
+        <div class="timer-header">
+            <div class="timer-box">
+                Time left 00:00:00
+            </div>
+        </div>
+
+        <div class="main-content-row">
+            
+            <main class="question-column">
+                <div class="question-card">
+                    <div class="question-text">
+                        Question goes here
+                    </div>
+
+                    <form id="quizForm">
+                        <div class="options-list">
+                            <label class="option-item">
+                                <input type="radio" name="answer" value="a">
+                                <span class="option-label">a. choice A goes here</span>
+                            </label>
+
+                            <label class="option-item">
+                                <input type="radio" name="answer" value="b">
+                                <span class="option-label">b. choice B goes here</span>
+                            </label>
+
+                            <label class="option-item">
+                                <input type="radio" name="answer" value="c">
+                                <span class="option-label">c. choice C goes here</span>
+                            </label>
+
+                            <label class="option-item">
+                                <input type="radio" name="answer" value="d">
+                                <span class="option-label">d. choice D goes here</span>
+                            </label>
+                        </div>
+                    </form>
+
+                    <a href="#" class="clear-choice">Clear my choice</a>
+                </div>
+
+                <div class="nav-footer">
+                    <button class="btn btn-prev">Previous page</button>
+                    <button class="btn btn-next">Next page</button>
+                </div>
+            </main>
+
+            <aside class="sidebar">
+                <h3>Exam Overview</h3>
+                <div class="overview-grid">
+                    <div class="grid-item">1</div>
+                    <div class="grid-item">2</div>
+                    <div class="grid-item">3</div>
+                    <div class="grid-item">4</div>
+                    <div class="grid-item">5</div>
+                    <div class="grid-item">6</div>
+                    <div class="grid-item">7</div>
+                    <div class="grid-item">8</div>
+                    <div class="grid-item">9</div>
+                    <div class="grid-item">10</div>
+                    <div class="grid-item">11</div>
+                    <div class="grid-item">12</div>
+                    <div class="grid-item">13</div>
+                    <div class="grid-item">14</div>
+                    <div class="grid-item">15</div>
+                    <div class="grid-item">16</div>
+                    <div class="grid-item">17</div>
+                    <div class="grid-item">18</div>
+                    <div class="grid-item">19</div>
+                    <div class="grid-item">20</div>
+                    <div class="grid-item">21</div> 
+                    <div class="grid-item">22</div>
+                    <div class="grid-item">23</div>
+                    <div class="grid-item">24</div>
+                    <div class="grid-item">25</div>
+                    <div class="grid-item">26</div>
+                    <div class="grid-item">27</div>
+                    <div class="grid-item">28</div>
+                    <div class="grid-item">29</div>
+                    <div class="grid-item">30</div>
+                    <div class="grid-item">31</div>
+                    <div class="grid-item">32</div>
+                    <div class="grid-item">33</div>
+                    <div class="grid-item">34</div>
+                    <div class="grid-item">35</div>
+                    <div class="grid-item">36</div>
+                    <div class="grid-item">37</div>
+                    <div class="grid-item">38</div>
+                    <div class="grid-item">39</div>
+                    <div class="grid-item">40</div>
+                    <div class="grid-item">41</div>
+                    <div class="grid-item">42</div>
+                    <div class="grid-item">43</div>
+                    <div class="grid-item">44</div>
+                    <div class="grid-item">45</div>
+                    <div class="grid-item">46</div>
+                    <div class="grid-item">47</div>
+                    <div class="grid-item">48</div>
+                    <div class="grid-item">49</div>
+                    <div class="grid-item">50</div>
+                    <div class="grid-item">51</div>
+                    <div class="grid-item">52</div>
+                    <div class="grid-item">53</div>
+                    <div class="grid-item">54</div>
+                    <div class="grid-item">55</div>
+                    <div class="grid-item">56</div>
+                    <div class="grid-item">57</div>
+                    <div class="grid-item">58</div>
+                    <div class="grid-item">59</div>
+                    <div class="grid-item">60</div>
+                    <div class="grid-item">61</div>
+                    <div class="grid-item">62</div>
+                    <div class="grid-item">63</div>
+                    <div class="grid-item">64</div>
+                    <div class="grid-item">65</div>
+                    <div class="grid-item">66</div>
+                    <div class="grid-item">67</div>
+                    <div class="grid-item">68</div>
+                    <div class="grid-item">69</div>
+                    <div class="grid-item">70</div>
+                    <div class="grid-item">71</div>
+                    <div class="grid-item">72</div>
+                    <div class="grid-item">73</div>
+                    <div class="grid-item">74</div>
+                    <div class="grid-item">75</div>
+                    <div class="grid-item">76</div>
+                    <div class="grid-item">77</div>
+                    <div class="grid-item">78</div>
+                    <div class="grid-item">79</div>
+                    <div class="grid-item">80</div>
+                    <div class="grid-item">81</div>
+                    <div class="grid-item">82</div>
+                    <div class="grid-item">83</div>
+                    <div class="grid-item">84</div>
+                    <div class="grid-item">85</div>
+                    <div class="grid-item">86</div>
+                    <div class="grid-item">87</div>
+                    <div class="grid-item">88</div>
+                    <div class="grid-item">89</div>
+                    <div class="grid-item">90</div>
+                    <div class="grid-item">91</div>
+                    <div class="grid-item">92</div>
+                    <div class="grid-item">93</div>
+                    <div class="grid-item">94</div>
+                    <div class="grid-item">95</div>
+                    <div class="grid-item">96</div>
+                    <div class="grid-item">97</div>
+                    <div class="grid-item">98</div>
+                    <div class="grid-item">99</div>
+                    <div class="grid-item">100</div>
+                </div>
+        
+                </div>
+            </aside>
+            
+        </div> </div> </body>
+</html>

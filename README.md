@@ -1,6 +1,6 @@
 ---
 
-🎓 Falcon Academy EUEE Exam Simulator
+<b>🎓 Falcon Academy EUEE Exam Simulator</b>
 
 Ethiopian University Entrance Examination (EUEE) Simulator Module
 A feature integrated into Falcon Academy's Digital Learning Management System (DLMS)

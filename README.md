@@ -34,7 +34,7 @@ Follow these simple steps to run the simulator locally:
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/your-username/falcon-academy-euee-simulator.git
+   git clone https://github.com/HexPredators/quiz-app/
    ```
    Or download the ZIP file and extract it.
 2. Open the application

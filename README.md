@@ -1,6 +1,6 @@
 ---
 
-<b>🎓 Falcon Academy EUEE Exam Simulator</b>
+<h1>🎓 Falcon Academy EUEE Exam Simulator</h1>
 
 Ethiopian University Entrance Examination (EUEE) Simulator Module
 A feature integrated into Falcon Academy's Digital Learning Management System (DLMS)
@@ -11,18 +11,18 @@ https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoCo
 https://img.shields.io/badge/License-MIT-yellow
 https://img.shields.io/badge/Ethiopian%20Education%20System-Compatible-brightgreen
 
-🌟 Overview
+<h3>🌟 Overview</h3>
 
 The EUEE Simulator is a web-based examination tool designed to replicate the authentic Ethiopian University Entrance Examination experience. It provides students with a realistic preview of the exam environment, helping them familiarize themselves with the timing, question layout, and overall structure before sitting for the actual exam.
 
-🎯 Key Features
+<h3>🎯 Key Features</h3>
 
 · 🖥️ Authentic Exam Environment – A distraction-free interface that mirrors the actual EUEE setup
 · ⚡ Instant Scoring – Receive immediate feedback upon completion
 · ⏱️ Integrated Timer – Track your pacing in real time
 · 📱 Mobile-First Design – Optimized for all devices
 
-🏗️ System Architecture
+<h3>🏗️ System Architecture</h3>
 
 ```
 EUEE Exam Simulator
@@ -39,7 +39,7 @@ EUEE Exam Simulator
 └── README.md               # Documentation
 ```
 
-👥 Target Users
+<h3>👥 Target Users</h3>
 
 User Purpose Benefits
 Grade 12 Students Exam Preparation Familiarize with EUEE format
@@ -48,7 +48,7 @@ Teachers Classroom Practice Mock exam administration
 Parents Student Support Track preparation progress
 Schools Mass Practice Organize mock examinations
 
-🚀 Quick Start
+<h3>🚀 Quick Start</h3>
 
 Prerequisites
 
@@ -79,7 +79,7 @@ xdg-open index.html
 
 Or simply double-click index.html in your file explorer.
 
-🎨 UI Components
+<h3>🎨 UI Components</h3>
 
 Core Components
 
@@ -97,7 +97,7 @@ Interactive Features
 · Submit Button: Final submission with confirmation
 · Score Card: Instant results with percentages
 
-📱 Features in Detail
+<h3>📱 Features in Detail</h3>
 
 1. 🖥️ Authentic Exam Environment
 
@@ -127,7 +127,7 @@ Interactive Features
 · Adaptive Text: Readable on any device
 · Offline Support: Works without internet
 
-🗂️ Project Structure
+<h3>🗂️ Project Structure</h3>
 
 ```
 quiz-app/
@@ -143,7 +143,7 @@ quiz-app/
 └── README.md                   # This file
 ```
 
-🔧 Technical Stack
+<h3>🔧 Technical Stack</h3>
 
 Frontend
 
@@ -159,7 +159,7 @@ Design
 · Flexbox/Grid - Modern layouts
 · Media Queries - Device optimization
 
-🚀 Deployment
+<h3>🚀 Deployment</h3>
 
 Deploy on InfinityFree/Netlify/GitHub Pages
 
@@ -187,7 +187,7 @@ Deploy on Netlify (Drag & Drop)
 2. Drag and drop folder to Netlify Drop
 3. Your site is live!
 
-📈 Development Roadmap
+<h3>📈 Development Roadmap</h3>
 
 Phase 1: Core Features ✅
 
@@ -210,7 +210,7 @@ Phase 3: Advanced Features 📅
 · ⏳ Peer comparison
 · ⏳ Study insights
 
-🤝 Contributing
+<h3>🤝 Contributing</h3>
 
 We welcome contributions! Please follow these steps:
 
@@ -227,7 +227,7 @@ Development Guidelines
 · Test on multiple browsers
 · Maintain clean documentation
 
-📄 License
+<h3>📄 License</h3>
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
@@ -255,21 +255,21 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
-🙏 Acknowledgments
+<h3>🙏 Acknowledgments</h3>
 
 · Ethiopian Ministry of Education for curriculum guidelines
 · Ethiopian students for inspiration
 · Teachers who provided feedback
 · The HexPredators development team
 
-📞 Support
+<h3>📞 Support</h3>
 
 For support, email: support.falconacademylms@gmail.com
 GitHub Issues: Create an issue
 
-🌐 Live Demo
+<h3>🌐 Live Demo</h3>
 
-Coming Soon!
+<b>Coming Soon!</b>
 The live-hosted version will be available at:
 https://euee-simulator.falconacademy.et
 
@@ -284,7 +284,7 @@ https://euee-simulator.falconacademy.et
   <img src="https://img.shields.io/badge/EUEE%20Preparation%20-%20Simulator-green" alt="EUEE Preparation Simulator">
 </p>
 
-🎯 Screenshots
+<h3>🎯 Screenshots</h3>
 
 Desktop View
 
@@ -296,7 +296,7 @@ Mobile Views
 Mobile Exam Mobile Results
 [Screenshot coming soon] [Screenshot coming soon]
 
-🔗 Useful Links
+<h3>🔗 Useful Links</h3>
 
 · Falcon Academy DLMS
 · EUEE Past Papers
@@ -304,14 +304,14 @@ Mobile Exam Mobile Results
 · FAQ
 · Changelog
 
-⭐ Show Your Support
+<h3>⭐ Show Your Support</h3>
 
 Give a ⭐️ if this project helps you prepare for your EUEE exams!
 
 ---
 
-Happy Studying! 📚✨
-From the HexPredators Team 🚀
+<b>Happy Studying! 📚✨
+From the HexPredators Team 🚀</b>
 
 ---
 

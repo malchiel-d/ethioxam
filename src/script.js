@@ -19,11 +19,21 @@ correct: "c"
 //saving user answers 
      //null,null,null
 let userAnswers = Array(quizData.length).fill(null);
+// submit button 
+function displaySubmit(){
+const submitButton = document.querySelector('.btn-submit')
+if (userAnswers.every(answer => answer !== null)) {
+    submitButton.style.display = "block";
+} else {
+    submitButton.style.display = "none";
+} 
+}
 //add answers from the form 
 const form = document.querySelector("#quizForm");
 
 form.addEventListener("change", function(event) {
     userAnswers[currentQuestionIndex] = event.target.value;
+    displaySubmit()
 });
 let currentQuestionIndex = 0;
 
@@ -37,6 +47,7 @@ document.querySelectorAll('#quizForm input').forEach(i => i.checked = false);
 if(savedAnswer !== null){
 let matchedRadio = document.querySelector(`input[value="${savedAnswer}"]`);
 matchedRadio.checked = true;
+displaySubmit()    
 }
 
     

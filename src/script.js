@@ -77,6 +77,8 @@ render();
 document.querySelector('#clearBtn').onclick = e => {
 e.preventDefault();
 document.querySelectorAll('#quizForm input').forEach(i => i.checked = false);
+userAnswers[currentQuestionIndex] = null;
+displaySubmit(); 
 };   
     
 //next and prev btn    

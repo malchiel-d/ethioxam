@@ -20,6 +20,7 @@ correct: "c"
      //null,null,null
 let userAnswers = Array(quizData.length).fill(null);
 // submit button 
+//diaplaying submit btn
 function displaySubmit(){
 const submitButton = document.querySelector('.btn-submit')
 if (userAnswers.every(answer => answer !== null)) {
@@ -27,6 +28,28 @@ if (userAnswers.every(answer => answer !== null)) {
 } else {
     submitButton.style.display = "none";
 } 
+}
+//submit btn clicked 
+document.querySelector("#submitBtn").addEventListener("click",submitAnswer);
+function submitAnswer(){
+alert("You have submitted your answers!")
+let score = 0;
+  
+for(let i=0; i<quizData.length;i++)    
+   if(userAnswers[i] === quizData[i].correct){
+     score++
+    }
+const percentage = Number(quizData.length? ((score * 100 / quizData.length)).toFixed(2): "invalid denominator");  
+let passOrFail;
+     if(percentage>=50){
+        passOrFail = "PASS"
+    }
+    else{
+        passOrFail = "FAIL"
+    }
+    
+console.log(`${passOrFail},you've scored ${score} out of ${quizData.length}(${percentage}%)`);
+
 }
 //add answers from the form 
 const form = document.querySelector("#quizForm");

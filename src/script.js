@@ -32,28 +32,46 @@ if (userAnswers.every(answer => answer !== null)) {
 //submit btn clicked 
 document.querySelector("#submitBtn").addEventListener("click",submitAnswer);
 function submitAnswer(){
-alert("You have submitted your answers!");
-quizWrapper.style.display = "none";
-endScreen.style.display = "block";
-
+alert("Answer submitted!");
+    
 let score = 0;
   
 for(let i=0; i<quizData.length;i++)    
-   if(userAnswers[i] === quizData[i].correct){
-     score++
-    }
-const percentage = Number(quizData.length? ((score * 100 / quizData.length)).toFixed(2): "invalid denominator");  
-let passOrFail;
-     if(percentage>=50){
-        passOrFail = "PASS"
-    }
-    else{
-        passOrFail = "FAIL"
-    }
-    
-console.log(`${passOrFail},you've scored ${score} out of ${quizData.length}(${percentage}%)`);
-
+if(userAnswers[i] === quizData[i].correct){
+score++
 }
+const percentage = Number(quizData.length? ((score * 100 / quizData.length)).toFixed(2): "invalid denominator");
+const quizWrapper = document.querySelector('#quiz-wrapper');
+const endScreen = document.querySelector('#endScreen');
+let scoreSpan = document.querySelector('#scoreSpan');    
+const restartBtn = document.querySelector('#restartBtn');
+    
+quizWrapper.style.display = "none";
+endScreen.style.display = "block";
+
+//score span
+scoreSpan.textContent = `${percentage}%`    
+if(percentage>=50){
+scoreSpan.style.color = "#4caf50";
+}
+else{
+scoreSpan.style.color = "#B00020";
+}
+}
+//restart btn
+restartBtn.addEventListener("click",restartExam);
+function restartExam(){
+//reset
+currentQuestionIndex = 0;
+userAnswers = Array(quizData.length).fill(null);    
+//swap
+let startBtn = document.querySelector('#start-btn');    
+startBtn.style.display = "block";
+endScreen.style.display = "none";
+//submit btn
+displaySubmit()    
+}
+
 //add answers from the form 
 const form = document.querySelector("#quizForm");
 

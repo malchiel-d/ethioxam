@@ -155,3 +155,13 @@ letter-spacing:0.3px;
 text-transform:uppercase;
 box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);
 }
+.endScreen{
+    display: none;
+    text-align: center;
+    background-color: #fff;
+    padding: 30px;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 500px;
+}

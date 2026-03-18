@@ -32,7 +32,10 @@ if (userAnswers.every(answer => answer !== null)) {
 //submit btn clicked 
 document.querySelector("#submitBtn").addEventListener("click",submitAnswer);
 function submitAnswer(){
-alert("You have submitted your answers!")
+alert("You have submitted your answers!");
+quizWrapper.style.display = "none";
+endScreen.style.display = "block";
+
 let score = 0;
   
 for(let i=0; i<quizData.length;i++)    

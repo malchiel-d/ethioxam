@@ -52,7 +52,14 @@ if (userAnswers.every(answer => answer !== null)) {
 //submit btn clicked 
 document.querySelector("#submitBtn").addEventListener("click",submitAnswer);
 function submitAnswer(){
-alert("Answer submitted!");
+/*const isConfirmed = confirm("Are you sure you want to sub,it?");
+
+if (isConfirmed) {
+  // Code to run if the user clicks "OK" (Yes)
+} else {
+  // Code to run if the user clicks "Cancel" (No)
+  // event.preventDefault()
+}*/
     
 let score = 0;
   

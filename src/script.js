@@ -100,6 +100,7 @@ const form = document.querySelector("#quizForm");
 form.addEventListener("change", function(event) {
     userAnswers[currentQuestionIndex] = event.target.value;
     displaySubmit()
+    displayClearBtn()
 });
 let currentQuestionIndex = 0;
 
@@ -113,7 +114,8 @@ document.querySelectorAll('#quizForm input').forEach(i => i.checked = false);
 if(savedAnswer !== null){
 let matchedRadio = document.querySelector(`input[value="${savedAnswer}"]`);
 matchedRadio.checked = true;
-displaySubmit()    
+displaySubmit()   
+displayClearBtn()  
 }
 
     
@@ -140,11 +142,22 @@ render();
 }
     
 //clear-button   
-document.querySelector('#clearBtn').onclick = e => {
+const clearBtn = document.querySelector('#clearBtn')
+function displayClearBtn(){
+  if(userAnswers[currentQuestionIndex] !== null){
+    clearBtn.style.display = "block";
+  }
+  else{
+    clearBtn.style.display = "none";
+  }
+  
+}
+clearBtn.onclick = e => {
 e.preventDefault();
 document.querySelectorAll('#quizForm input').forEach(i => i.checked = false);
 userAnswers[currentQuestionIndex] = null;
-displaySubmit(); 
+displaySubmit();
+displayClearBtn()  
 };   
     
 //next and prev btn    
@@ -154,11 +167,13 @@ function next(){
 if(currentQuestionIndex < quizData.length-1){
 currentQuestionIndex++ ;
 render()
+displayClearBtn()  
 }; 
 }   
 function previous(){   
 if(currentQuestionIndex > 0 ){
 currentQuestionIndex-- ;
 render()
+displayClearBtn()  
 };
 }

@@ -52,14 +52,9 @@ if (userAnswers.every(answer => answer !== null)) {
 //submit btn clicked 
 document.querySelector("#submitBtn").addEventListener("click",submitAnswer);
 function submitAnswer(){
-/*const isConfirmed = confirm("Are you sure you want to sub,it?");
-
-if (isConfirmed) {
-  // Code to run if the user clicks "OK" (Yes)
-} else {
-  // Code to run if the user clicks "Cancel" (No)
-  // event.preventDefault()
-}*/
+if (!confirm("Are you sure you want to submit? You won't be able to change your answers.")) {
+    return; 
+  }
     
 let score = 0;
   
@@ -67,7 +62,7 @@ for(let i=0; i<quizData.length;i++)
 if(userAnswers[i] === quizData[i].correct){
 score++
 }
-const percentage = Number(quizData.length? ((score * 100 / quizData.length)).toFixed(2): "invalid denominator");
+const percentage = Number(quizData.length? ((score * 100 / quizData.length)).toFixed(2): 0);
 const quizWrapper = document.querySelector('#quiz-wrapper');
 const endScreen = document.querySelector('#endScreen');
 let scoreSpan = document.querySelector('#scoreSpan');    

@@ -1,21 +1,41 @@
 //questions
 const quizData = [
-{
-question: "What is the capital of France?",
-choices: { a: "Paris", b: "London", c: "Berlin", d: "Madrid" },
-correct: "a"
-},
-{
-question: "Which planet is known as the Red Planet?",
-choices: { a: "Earth", b: "Mars", c: "Jupiter", d: "Venus" },
-correct: "b"
-},
-{
-question: "What is 5 + 7?",
-choices: { a: "10", b: "11", c: "12", d: "13" },
-correct: "c"
-}
-]
+  {
+    question: "KEY: LOCK; ________ : Computer",
+    choices: { a: "Monitor", b: "Password", c: "Server", d: "Screen" },
+    correct: "b"
+  },
+  {
+    question: "PHYSICIAN: HOSPITAL; ________ : School",
+    choices: { a: "Supervisor", b: "Teacher", c: "Administrator", d: "Student" },
+    correct: "b"
+  },
+  {
+    question: "NEST: BIRD; ________ : Lion",
+    choices: { a: "Hive", b: "Cave", c: "Backyard", d: "Den" },
+    correct: "d"
+  },
+  {
+    question: "AUTOMOBILE: GARAGE; ________ : Hangar",
+    choices: { a: "Train", b: "Airplane", c: "Deck", d: "Truck" },
+    correct: "b"
+  },
+  {
+    question: "PHONEY",
+    choices: { a: "Genuine", b: "Authentic", c: "Fake", d: "Funny" },
+    correct: "c"
+  },
+  {
+    question: "THEFT",
+    choices: { a: "Gossip", b: "Suspicion", c: "Burglary", d: "Hypocrisy" },
+    correct: "c"
+  },
+  {
+    question: "HUMOROUS",
+    choices: { a: "Amusing", b: "Doubting", c: "Satiating", d: "Satisfying" },
+    correct: "a"
+  }
+];
 //saving user answers 
      //null,null,null
 let userAnswers = Array(quizData.length).fill(null);

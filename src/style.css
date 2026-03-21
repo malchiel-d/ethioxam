@@ -16,26 +16,84 @@ body {
  padding: 40px;
  color: #333;
 }
-.btn-start{
- font-size:1.1rem;
- font-weight:600;
- letter-spacing:0.5px;
- text-transform:uppercase;
- color:#fff;
- background:#003370;
- padding:15px 32px;
- border:1px solid rgba(255,255,255,0.1);
- border-radius:4px;
- cursor:pointer;
- transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
- box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);
+.home {
+ height: 100vh;
+ min-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 400px;
 }
-.btn-start:hover{
- background:#004494;
- box-shadow:0 10px 15px -3px rgba(0,0,0,0.2);
+.home .header{
+ width:100%;
+ display: flex;
+ align-self: flex-start;
+ align-items: center;
+ justify-content: center;
 }
-.btn-start:active{
- background: #0056b3;
+.home .header .logo {
+ border-radius: 50%;
+ 
+}
+
+.home h2 {
+ font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #0056b3;
+}
+
+.stream-container {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+}
+
+.stream-toggle {
+  width: 100%;
+  padding: 15px 20px;
+  background: #fff;
+  border: none;
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  transition: background 0.3s;
+}
+
+.stream-toggle:hover {
+  background: #f0f7ff;
+}
+
+.stream-content {
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  padding: 10px;
+  background: #fafafa;
+  border-top: 1px solid #eee;
+}
+
+/* When the container is "active", show the content */
+.stream-container.active .stream-content {
+  display: flex;
+}
+
+.stream-container.active .stream-toggle span {
+  transform: rotate(180deg);
+}
+
+.btn-subject {
+  width: calc(100% - 20px);
+  margin: 5px 10px !important;
+  text-align: center;
+}
+.confirm{
+ display: none;
 }
 .quiz-wrapper {
  width: 100%;
@@ -119,12 +177,14 @@ padding-top: 20px;
  background-color: #0056b3;
  border: none;
  color:#fff;
- padding: 5px 20px;
+ padding: 9px 36px;
  border-radius: 4px;
  font-size: 0.9rem;
  cursor: pointer;
  border: 1px solid transparent;
  transition:all 0.1s cubic-bezier(0.4,0,0.2,1);
+ margin: 10px;
+ text-align: center;
 }
 .btn:active{
  transform: scale(0.97);

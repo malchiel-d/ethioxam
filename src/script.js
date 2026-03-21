@@ -1,188 +1,138 @@
-//questions
-const quizData = [
-  {
-    question: "KEY: LOCK; ________ : Computer",
-    choices: { a: "Monitor", b: "Password", c: "Server", d: "Screen" },
-    correct: "b"
-  },
-  {
-    question: "PHYSICIAN: HOSPITAL; ________ : School",
-    choices: { a: "Supervisor", b: "Teacher", c: "Administrator", d: "Student" },
-    correct: "b"
-  },
-  {
-    question: "NEST: BIRD; ________ : Lion",
-    choices: { a: "Hive", b: "Cave", c: "Backyard", d: "Den" },
-    correct: "d"
-  },
-  {
-    question: "AUTOMOBILE: GARAGE; ________ : Hangar",
-    choices: { a: "Train", b: "Airplane", c: "Deck", d: "Truck" },
-    correct: "b"
-  },
-  {
-    question: "PHONEY",
-    choices: { a: "Genuine", b: "Authentic", c: "Fake", d: "Funny" },
-    correct: "c"
-  },
-  {
-    question: "THEFT",
-    choices: { a: "Gossip", b: "Suspicion", c: "Burglary", d: "Hypocrisy" },
-    correct: "c"
-  },
-  {
-    question: "HUMOROUS",
-    choices: { a: "Amusing", b: "Doubting", c: "Satiating", d: "Satisfying" },
-    correct: "a"
-  }
-];
-
-//saving user answers 
-     //null,null,null
+//STATE: Variables to track the quiz progress
+let currentSubject = null;
 let currentQuestionIndex = 0;
-let userAnswers = Array(quizData.length).fill(null);
+let userAnswers = [];
 
+//ELEMENTS
 const quizWrapper = document.querySelector('#quiz-wrapper');
 const endScreen = document.querySelector('#endScreen');
+const home = document.querySelector('.home');
 const form = document.querySelector("#quizForm");
 const clearBtn = document.querySelector('#clearBtn');
-const submitButton = document.querySelector('.btn-submit');
+const submitButton = document.querySelector('#submitBtn');
+const scoreSpan = document.querySelector('#scoreSpan');
 
-//start-btn
-document.querySelector('#start-btn').addEventListener("click", startExam);
+
+
+//Dropdown Toggle Logic
+document.querySelectorAll('.stream-toggle').forEach(toggle => {
+  toggle.addEventListener('click', () => {
+    const container = toggle.parentElement;
+    // Optional: Close other dropdowns when one opens
+    document.querySelectorAll('.stream-container').forEach(c => {
+      if (c !== container) c.classList.remove('active');
+    });
+    container.classList.toggle('active');
+  });
+});
+
+//Start Exam Logic
+document.querySelectorAll('.btn-subject').forEach(btn => {
+  btn.addEventListener("click", (e) => {
+    currentSubject = e.target.id;
+    
+    //Check if we actually have questions for this subject
+    if (quizData[currentSubject]) {
+      startExam();
+    } else {
+      alert("No questions found for " + currentSubject + " yet!");
+    }
+  });
+});
 
 function startExam() {
-  let startBtn = document.querySelector('#start-btn');
-  let quizWrapper = document.querySelector('.quiz-wrapper');
-  startBtn.style.display = "none";
+  currentQuestionIndex = 0;
+  userAnswers = Array(quizData[currentSubject].length).fill(null);
+  
+  home.style.display = "none";
+  endScreen.style.display = "none";
   quizWrapper.style.display = "block";
   render();
 }
 
+//Rendering Logic
 function render() {
-  let currentQuestion = quizData[currentQuestionIndex];
-  let savedAnswer = userAnswers[currentQuestionIndex];
+  const questions = quizData[currentSubject];
+  const currentQuestion = questions[currentQuestionIndex];
+  const savedAnswer = userAnswers[currentQuestionIndex];
 
-  //clear inputs 
-  document.querySelectorAll('#quizForm input').forEach(i => i.checked = false);
+  form.reset();
 
-  //fill inputs
-  if (savedAnswer !== null) {
-    let matchedRadio = document.querySelector(`input[value="${savedAnswer}"]`);
-    if (matchedRadio) matchedRadio.checked = true;
-    displaySubmit();
-    displayClearBtn();
-  }
+  document.querySelector('#questionDiv').textContent = `${currentQuestionIndex + 1}. ${currentQuestion.question}`;
 
-  //adding quiz data to screen
-  let questionHtml = document.querySelector('.quiz-wrapper #questionDiv');
-  let choiceHtml = document.querySelectorAll('.option-label');
-
-  //add question
-  questionHtml.textContent = `${currentQuestionIndex + 1}. ${currentQuestion.question}`;
-
-  //add the choioces
-  Object.values(currentQuestion.choices).forEach((choice, index) => {
-    choiceHtml[index].textContent = String.fromCharCode(97 + index) + ". " + choice;
+  const labels = document.querySelectorAll('.option-label');
+  const radios = document.querySelectorAll('input[name="answer"]');
+  
+  const choiceKeys = Object.keys(currentQuestion.choices); 
+  choiceKeys.forEach((key, index) => {
+    labels[index].textContent = `${key}. ${currentQuestion.choices[key]}`;
+    radios[index].value = key;
+    if (savedAnswer === key) radios[index].checked = true;
   });
+
+  displayClearBtn();
+  displaySubmit();
 }
 
-//next and prev btn    
-document.querySelector('#nextBtn').addEventListener("click", next);
-document.querySelector('#previousBtn').addEventListener("click", previous);
-
-function next() {
-  if (currentQuestionIndex < quizData.length - 1) {
+//Navigation & Answers
+const nextBtn = document.querySelector('#nextBtn')
+const prevBtn = document.querySelector('#previousBtn')
+document.querySelector('#nextBtn').onclick = () => {
+  if (currentQuestionIndex < quizData[currentSubject].length - 1) {
     currentQuestionIndex++;
     render();
-    displayClearBtn();
-  };
-}
+  }
+};
 
-function previous() {
+document.querySelector('#previousBtn').onclick = () => {
   if (currentQuestionIndex > 0) {
     currentQuestionIndex--;
     render();
-    displayClearBtn();
-  };
-}
-
-//add answers from the form 
-form.addEventListener("change", function(event) {
-  userAnswers[currentQuestionIndex] = event.target.value;
-  displaySubmit();
-  displayClearBtn();
-});
-
-//clear-button   
-function displayClearBtn() {
-  if (userAnswers[currentQuestionIndex] !== null) {
-    clearBtn.style.display = "block";
-  } else {
-    clearBtn.style.display = "none";
   }
-}
-
-clearBtn.onclick = e => {
-  e.preventDefault();
-  document.querySelectorAll('#quizForm input').forEach(i => i.checked = false);
-  userAnswers[currentQuestionIndex] = null;
-  displaySubmit();
-  displayClearBtn();
 };
 
-// submit button 
-//diaplaying submit btn
-function displaySubmit() {
-  if (userAnswers.every(answer => answer !== null)) {
-    submitButton.style.display = "block";
-  } else {
-    submitButton.style.display = "none";
-  }
+form.onchange = (e) => {
+  userAnswers[currentQuestionIndex] = e.target.value;
+  displayClearBtn();
+  displaySubmit();
+};
+
+function displayClearBtn() {
+  clearBtn.style.display = userAnswers[currentQuestionIndex] !== null ? "block" : "none";
 }
 
-//submit btn clicked 
-document.querySelector("#submitBtn").addEventListener("click", submitAnswer);
+clearBtn.onclick = (e) => {
+  e.preventDefault();
+  form.reset();
+  userAnswers[currentQuestionIndex] = null;
+  displayClearBtn();
+  displaySubmit();
+};
 
-function submitAnswer() {
-  if (!confirm("Are you sure you want to submit? You won't be able to change your answers.")) {
-    return;
-  }
+function displaySubmit() {
+  const isLast = currentQuestionIndex === quizData[currentSubject].length - 1;
+  const allDone = userAnswers.every(ans => ans !== null);
+  submitButton.style.display = (isLast && allDone) ? "block" : "none";
+}
+
+//Finish & Restart
+submitButton.onclick = () => {
+  if (!confirm("Are you sure to submit,you wont be able to change your answers.")) return;
 
   let score = 0;
+  const questions = quizData[currentSubject];
+  userAnswers.forEach((ans, i) => {
+    if (ans === questions[i].correct) score++;
+  });
 
-  for (let i = 0; i < quizData.length; i++)
-    if (userAnswers[i] === quizData[i].correct) {
-      score++;
-    }
-
-  const percentage = Number(quizData.length ? ((score * 100 / quizData.length)).toFixed(2) : 0);
-  let scoreSpan = document.querySelector('#scoreSpan');
-
+  const percent = ((score / questions.length) * 100).toFixed(1);
   quizWrapper.style.display = "none";
-  endScreen.style.display = "block";
+  endScreen.style.display = "flex";
+  scoreSpan.textContent = `${percent}% (${score}/${questions.length})`;
+  scoreSpan.style.color = percent >= 50 ? "#4caf50" : "#B00020";
+};
 
-  //score span
-  scoreSpan.textContent = `${percentage}%`;
-  if (percentage >= 50) {
-    scoreSpan.style.color = "#4caf50";
-  } else {
-    scoreSpan.style.color = "#B00020";
-  }
-}
-
-//restart btn
-const restartBtn = document.querySelector('#restartBtn');
-restartBtn.addEventListener("click", restartExam);
-
-function restartExam() {
-  //reset
-  currentQuestionIndex = 0;
-  userAnswers = Array(quizData.length).fill(null);
-  //swap
-  let startBtn = document.querySelector('#start-btn');
-  startBtn.style.display = "block";
+document.querySelector('#restartBtn').onclick = () => {
   endScreen.style.display = "none";
-  //submit btn
-  displaySubmit();
-}
+  home.style.display = "flex";
+};

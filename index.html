@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EUEE simulator</title>
+  <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+  <div class="home">
+    <div class="header">
+      <img src="assets/logo.png" class="logo" alt="logo" width= "150px" height="150px">
+    </div>
+  <h2>Select Your Stream</h2>
+  
+  <div class="stream-container">
+    <button class="stream-toggle">Natural Science <span>▼</span></button>
+    <div class="stream-content">     
+      <button class="btn btn-subject" id="phy">Physics-2017</button>
+      <button class="btn btn-subject" id="bio">Biology-2017</button>
+    </div>
+  </div>
+
+  <div class="stream-container">
+    <button class="stream-toggle">Social Science <span>▼</span></button>
+    <div class="stream-content">
+      <p class="btn">comming soon</p>
+    </div>
+  </div>
+    <!--<div class="confirm">
+      <button class="btn" id="confirm-start">back</button>
+      <button class="btn" id="confirm-start">start</button>    
+    </div>
+    -->
+    </div>
+
+  
+  <div class="quiz-wrapper" id="quiz-wrapper">
+    <div class="question-card">
+      <div class="question-text" id="questionDiv">Question goes here</div>
+        <form id="quizForm">
+          <div class="options-list">
+            <label class="option-item"><input type="radio" name="answer" value="a"> <span class="option-label"></span></label>
+            <label class="option-item"><input type="radio" name="answer" value="b"> <span class="option-label"></span></label>
+            <label class="option-item"><input type="radio" name="answer" value="c"> <span class="option-label"></span></label>
+            <label class="option-item"><input type="radio" name="answer" value="d"> <span class="option-label"></span></label>
+          </div>
+        </form>
+        <a href="#" class="clear-choice" id="clearBtn">Clear my choice</a>
+    </div>
+      
+    <div class="nav-footer">
+      <div class="left-btns">
+        <button class="btn btn-prev" id="previousBtn">Previous</button>
+        <button class="btn btn-next" id="nextBtn">Next</button>
+      </div>
+      <button class="btn btn-submit" id="submitBtn">Submit</button>    
+    </div>
+  </div>
+
+  <div class="endScreen" id="endScreen">
+    <h2>Exam Completed!</h2>      
+    <p>Score: <span id="scoreSpan"></span></p>   
+    <div class="restart-btn-container">
+      <button class="btn btn-restart" id="restartBtn">Back to Home</button>
+    </div>
+  </div>
+   
+  <script src="src/script.js"></script>
+  <script src="data/data.js"></script>
+</body>
+</html>

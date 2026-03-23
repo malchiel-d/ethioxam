@@ -136,3 +136,11 @@ document.querySelector('#restartBtn').onclick = () => {
   endScreen.style.display = "none";
   home.style.display = "flex";
 };
+//back to home
+
+const backToHome = document.querySelector('#backToHome');
+backToHome.addEventListener("click",backtohome)
+function backtohome(){
+  quizWrapper.style.display = "none";
+  home.style.display = "flex";
+}

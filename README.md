@@ -1,9 +1,8 @@
 # 🎓 ETIOXAM: EUEE Exam Simulator
 
 ETIOXAM is web-based tool designed to replicate the authentic Ethiopian University Entrance Examination (EUEE) experience. It provides students with a realistic preview of the digital exam environment, focusing on timing, question layout, and immediate performance feedback.
-## live 
-
-> live link will be available soon
+## 🚀 Live 
+[malchiel-d.github.io/ethioxam](https://malchiel-d.github.io/ethioxam/)
  
 ## ✨ Core Features
 

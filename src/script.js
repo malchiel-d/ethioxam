@@ -134,7 +134,7 @@ submitButton.onclick = () => {
 
 document.querySelector('#restartBtn').onclick = () => {
   endScreen.style.display = "none";
-  home.style.display = "flex";
+  home.style.display = "block";
 };
 //back to home
 

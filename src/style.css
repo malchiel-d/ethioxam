@@ -15,74 +15,7 @@ body {
   justify-content: center;
   color: #333;
 }
-.home-btn {
-  width: 3em; /* Slightly smaller for better fit */
-  height: 3em;
-  border: none;
-  background: none;
-  position: relative; /* Needed so X and Y position correctly inside */
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.2s;
-}
 
-.X,
-.Y {
-  position: absolute;
-  width: 1.5em;
-  height: 2px;
-  background-color: #000;
-  transition: background-color 0.2s;
-}
-
-.X {
-  transform: rotate(45deg);
-}
-
-.Y {
-  transform: rotate(-45deg);
-}
-
-/* Hover Effects */
-.home-btn:hover {
-  background-color: rgb(210, 0, 0);
-  border-radius: 4px;
-}
-
-.home-btn:hover .X,
-.home-btn:hover .Y {
-  background-color: #fff;
-}
-
-.close {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  bottom: -30px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 4em;
-  height: 1.7em;
-  font-size: 12px;
-  background-color: #333;
-  color: #fff;
-  border-radius: 4px;
-  pointer-events: none;
-  opacity: 0;
-}
-
-.home-btn:hover > .close {
-  animation: close 0.2s forwards 0.5s;
-}
-
-@keyframes close {
-  100% {
-    opacity: 1;
-  }
-}
 .home .header {
   width: 100%;
   display: flex;
@@ -171,7 +104,76 @@ body {
   position: relative;
   display: none;
 }
+.home-btn {
+  width: 3em;
+  height: 3em;
+  border: none;
+  background: none;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+  border-radius: 50%;
+}
 
+.X,
+.Y {
+  position: absolute;
+  width: 1.5em;
+  height: 2px;
+  background-color: #000;
+  transition: background-color 0.2s;
+}
+
+.X {
+  transform: rotate(45deg);
+}
+
+.Y {
+  transform: rotate(-45deg);
+}
+
+.home-btn:hover {
+  background-color: #0056b3;
+}
+
+.home-btn:active {
+  transform: scale(0.95);
+}
+.home-btn:hover .X,
+.home-btn:hover .Y {
+  background-color: #fff;
+}
+
+.close {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4em;
+  height: 1.7em;
+  font-size: 12px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 4px;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.home-btn:hover > .close {
+  animation: close 0.2s forwards 0.5s;
+}
+
+@keyframes close {
+  100% {
+    opacity: 1;
+  }
+}
 .timer-container {
   display: flex;
   justify-content: flex-end;

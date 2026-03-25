@@ -1,69 +1,111 @@
 * {
--webkit-tap-highlight-color: transparent;
- box-sizing: border-box; 
- margin: 0;
- padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 body {
- font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
- background-color: #f8f9fa;
- display: flex;
- flex-direction: column;
- min-height: 100vh;
- min-width:100vw;
- align-items: center;
- justify-content: center;
- color: #333;
-}
-.home {
- height: 100vh;
- min-width: 100vw;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  min-height: 100vh;
+  min-width: 100vw;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+}
+.home-btn {
+  width: 3em; /* Slightly smaller for better fit */
+  height: 3em;
+  border: none;
+  background: none;
+  position: relative; /* Needed so X and Y position correctly inside */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.X,
+.Y {
+  position: absolute;
+  width: 1.5em;
+  height: 2px;
+  background-color: #000;
+  transition: background-color 0.2s;
+}
+
+.X {
+  transform: rotate(45deg);
+}
+
+.Y {
+  transform: rotate(-45deg);
+}
+
+/* Hover Effects */
+.home-btn:hover {
+  background-color: rgb(210, 0, 0);
+  border-radius: 4px;
+}
+
+.home-btn:hover .X,
+.home-btn:hover .Y {
+  background-color: #fff;
+}
+
+.close {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4em;
+  height: 1.7em;
+  font-size: 12px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 4px;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.home-btn:hover > .close {
+  animation: close 0.2s forwards 0.5s;
+}
+
+@keyframes close {
+  100% {
+    opacity: 1;
+  }
+}
+.home .header {
   width: 100%;
-  max-width: 400px;
-}
-.home-btn{
- padding: 0;
- width:30px;
- height: 30px;
- display: flex;
- align-items: center;
- justify-content: center;
- border-radius: 100%;
- background: none;
- cursor:pointer;
- border: none;
- color:#000;
- font-size: 1.5rem;
- cursor: pointer;
- border: 1px solid transparent;
- transition:all 0.1s cubic-bezier(0.4,0,0.2,1);
-}
-.home .header{
- width:100%;
- display: flex;
- align-self: flex-start;
- align-items: center;
- justify-content: center;
- background: #fff;
+  display: flex;
+  align-self: flex-start;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
 }
 .home .header .logo {
- border-radius: 50%;
- width:120px;
- height:120px;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
 }
-.home main{
- height: 60%;
- display: flex;
- flex-direction: column;
- gap:10px;
- align-items: center;
- justify-content: center;
+.home main {
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
 }
 .home h2 {
- font-size: 4rem;
+  font-size: 4rem;
   justify-content: left;
   margin-bottom: 50px;
   color: #0056b3;
@@ -117,146 +159,146 @@ body {
   margin: 5px 10px !important;
   text-align: center;
 }
-.confirm{
- display: none;
+.confirm {
+  display: none;
 }
 .quiz-wrapper {
- width: 100%;
- max-width: 900px;
- background-color: #fff;
- padding: 20px;
- border: 1px solid #dee2e6;
- position: relative;
- display: none;
+  width: 100%;
+  max-width: 900px;
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #dee2e6;
+  position: relative;
+  display: none;
 }
 
 .timer-container {
- display: flex;
- justify-content: flex-end;
- margin-bottom: 15px;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 15px;
 }
 
 .timer-box {
- border: 1px solid #c0c0c0;
- padding: 4px 12px;
- font-size: 0.9rem;
- color: #444;
+  border: 1px solid #c0c0c0;
+  padding: 4px 12px;
+  font-size: 0.9rem;
+  color: #444;
 }
 .question-card {
- background-color: #e7f3ff;
- border-radius: 4px;
- padding: 25px;
- margin-bottom: 40px;
- }
- .question-text {
- font-size: 1.05rem;
- margin-bottom: 20px;
- line-height: 1.4;
- }
+  background-color: #e7f3ff;
+  border-radius: 4px;
+  padding: 25px;
+  margin-bottom: 40px;
+}
+.question-text {
+  font-size: 1.05rem;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
 .options-list {
- padding: 0;
+  padding: 0;
 }
 .option-item {
- display: flex;
- align-items: center;
- margin-bottom: 12px;
- cursor: pointer;
- }
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
 .option-item input[type="radio"] {
- margin-right: 12px;
- cursor: pointer;
+  margin-right: 12px;
+  cursor: pointer;
 }
 
 .option-label {
- font-size: 0.95rem;
- }
+  font-size: 0.95rem;
+}
 .clear-choice {
- display: none;
- margin-top: 15px;
- font-size: 0.85rem;
- color: #0056b3;
- text-decoration: none;
+  display: none;
+  margin-top: 15px;
+  font-size: 0.85rem;
+  color: #0056b3;
+  text-decoration: none;
 }
 .clear-choice:hover {
- text-decoration: underline;
+  text-decoration: underline;
 }
-.clear-choice:active{
- transform: scale(0.97);
+.clear-choice:active {
+  transform: scale(0.97);
 }
 .nav-footer {
-width: 100%;
-display: flex;
-justify-content: space-between;
-align-items: center;
-border-top: 1px solid #eee;
-padding-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
 }
-.left-btns{
- display: flex;
- align-items: center;
- gap:25px;
- width:100%;
+.left-btns {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  width: 100%;
 }
 .btn {
- cursor:pointer;
- background-color: #0056b3;
- border: none;
- color:#fff;
- padding: 9px 36px;
- border-radius: 4px;
- font-size: 0.9rem;
- cursor: pointer;
- border: 1px solid transparent;
- transition:all 0.1s cubic-bezier(0.4,0,0.2,1);
- margin: 10px;
- text-align: center;
+  cursor: pointer;
+  background-color: #0056b3;
+  border: none;
+  color: #fff;
+  padding: 9px 36px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  margin: 10px;
+  text-align: center;
 }
-.btn:active{
- transform: scale(0.97);
+.btn:active {
+  transform: scale(0.97);
 }
 .btn-prev {
- background-color: #f1f1f1;
- color: #555;
- border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  color: #555;
+  border: 1px solid #ccc;
 }
 .btn-prev:hover {
- background-color: #e2e2e2;
+  background-color: #e2e2e2;
 }
 .btn-prev:active {
- background-color: #d4d4d4;
+  background-color: #d4d4d4;
 }
 .btn-next {
- background-color: #0056b3;
- }
+  background-color: #0056b3;
+}
 .btn-next:hover {
- background-color: #004494;
+  background-color: #004494;
 }
 
 .btn-next:active {
- background-color: #003370;
+  background-color: #003370;
 }
-.btn-submit{
-display: none; 
-font-size:1rem;
-font-weight:600;
-letter-spacing:0.3px;
-text-transform:uppercase;
-box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);
+.btn-submit {
+  display: none;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 .endScreen {
   display: none; /* show it later with JS */
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
+
   width: 100%;
   max-width: 400px;
   padding: 30px;
-  
+
   background: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+
   text-align: center;
 }
 

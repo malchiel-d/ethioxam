@@ -142,5 +142,5 @@ const backToHome = document.querySelector('#backToHome');
 backToHome.addEventListener("click",backtohome)
 function backtohome(){
   quizWrapper.style.display = "none";
-  home.style.display = "flex";
+  home.style.display = "block";
 }

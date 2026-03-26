@@ -7,33 +7,62 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="home">
+        <div class="home">
       <div class="header">
+        <div class="logo-container">
         <img src="assets/logo.png" class="logo" alt="logo" />
+        </div>
+          <nav>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
       </div>
-      <main>
-        <h2>Select Your Stream</h2>
 
-        <div class="stream-container">
-          <button class="stream-toggle">Natural Science <span>▼</span></button>
-          <div class="stream-content">
-            <button class="btn btn-subject" id="phy">Physics-2017</button>
-            <button class="btn btn-subject" id="bio">Biology-2017</button>
-          </div>
-        </div>
+      <main id="main" class="container">
+  <div class="main-intro">
+    <h1>Simulate. Practice. Improve.</h1>
+    <p>Choose your stream and test yourself with questions based on the latest curriculum.</p>
+  </div>
 
-        <div class="stream-container">
-          <button class="stream-toggle">Social Science <span>▼</span></button>
-          <div class="stream-content">
-            <p class="btn">coming soon</p>
-          </div>
-        </div>
-      </main>
-      <!--<div class="confirm">
-      <button class="btn" id="confirm-start">back</button>
-      <button class="btn" id="confirm-start">start</button>    
+  <div class="stream-grid">
+    <div class="stream-card active card">
+      <div class="card-icon">🧪</div>
+      <h3>Natural Science</h3>
+      <p>Physics, Biology, Chemistry, and more.</p>
+      <div class="subject-list">
+        <button class="btn-subject" id="phy">Physics - 2017</button>
+        <button class="btn-subject" id="bio">Biology - 2017</button>
+      </div>
     </div>
-    --></div>
+
+    <div class="stream-card locked card">
+      <div class="card-icon">📚</div>
+      <h3>Social Science</h3>
+      <p>Geography, History, Economics, and more.</p>
+      <div class="coming-soon-badge">Coming Soon</div>
+    </div>
+  </div>
+</main>
+
+
+      <section id="about" class="page-section">
+        <h2>About Us</h2>
+        <p>Welcome to Ethioxam. This platform is designed to help students prepare for their university entrance exams through interactive practice sessions and simulated testing environments.</p>
+      </section>
+
+      <section id="contact" class="page-section">
+        <h2>Contact Us</h2>
+        <p>Have questions or need support? Reach out to our team at <strong>contact.hexpredators@gmail.com</strong>.</p>
+      </section>
+
+      <footer>
+        <p>&copy; 2026 Ethioxam. All rights reserved.</p>
+      </footer>
+    </div>
+
 
     <div class="quiz-wrapper" id="quiz-wrapper">
       <div class="backToHome">

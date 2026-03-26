@@ -23,42 +23,172 @@ body {
   width: 100%;
 }
 .home .header {
-  position:sticky;
-  top:0;
+  position: sticky;
+  top: 0;
   z-index: 1000;
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 25px 50px; 
   background: #fff;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05); 
 }
-.home .header .logo {
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
+.home .header .logo{
+  width: 96px;
+  height: 54px;
 }
-.home main {
+.home .header nav ul {
   display: flex;
-  flex-direction: column;
-  flex:1;
-  gap: 10px;
-  align-items: center;
-  justify-content: center;
+  list-style: none;
+  gap: 30px;
 }
-.home h2 {
-  font-size: 4rem;
-  justify-content: left;
-  margin-bottom: 50px;
+.home .header nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.home .header nav a:hover {
+  color: #0056b3;
+}
+.page-section {
+  width: 100%;
+  padding: 80px 20px;
+  text-align: center;
+  background-color: #f8f9fa;
+}
+.page-section:nth-of-type(even) {
+  background-color: #fff;
+}
+
+.page-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
   color: #0056b3;
 }
 
-.stream-container {
-  width: 100%;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden;
-  background: white;
+.page-section p {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
+
+footer {
+  width: 100%;
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  padding: 25px 0;
+  margin-top: auto;
+}
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  flex: 1;
+}
+
+.main-intro {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.main-intro h1 {
+  font-size: 2.5rem;
+  color: #003370;
+  margin-bottom: 10px;
+}
+
+.main-intro p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.stream-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  width: 100%;
+}
+
+.stream-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stream-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 86, 179, 0.1);
+  border-color: #0056b3;
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.stream-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.stream-card p {
+  color: #777;
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+}
+.subject-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.btn-subject {
+  background-color: #f0f7ff;
+  color: #0056b3;
+  border: 2px solid #0056b3;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-subject:hover {
+  background-color: #0056b3;
+  color: #fff;
+}
+
+.locked {
+  background-color: #f9f9f9;
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.coming-soon-badge {
+  background: #eee;
+  color: #888;
+  padding: 6px 15px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 
 .stream-toggle {
   width: 100%;
@@ -338,4 +468,13 @@ body {
 }
 .btn-restart:active {
   background-color: #003370;
+}
+@media screen and (max-width: 768px) {
+  .home .header nav {
+    display: none;
+  }
+  .home .header {
+    justify-content: space-between; 
+  }
+  
 }

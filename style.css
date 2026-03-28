@@ -29,8 +29,8 @@ body {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 25px 50px; 
+  justify-content: center;
+  padding: 20px 50px; 
   background: #fff;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05); 
 }
@@ -473,8 +473,4 @@ footer {
   .home .header nav {
     display: none;
   }
-  .home .header {
-    justify-content: space-between; 
-  }
-  
 }

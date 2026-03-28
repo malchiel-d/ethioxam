@@ -12,20 +12,6 @@ const clearBtn = document.querySelector('#clearBtn');
 const submitButton = document.querySelector('#submitBtn');
 const scoreSpan = document.querySelector('#scoreSpan');
 
-
-
-//Dropdown Toggle Logic
-document.querySelectorAll('.stream-toggle').forEach(toggle => {
-  toggle.addEventListener('click', () => {
-    const container = toggle.parentElement;
-    // Optional: Close other dropdowns when one opens
-    document.querySelectorAll('.stream-container').forEach(c => {
-      if (c !== container) c.classList.remove('active');
-    });
-    container.classList.toggle('active');
-  });
-});
-
 //Start Exam Logic
 document.querySelectorAll('.btn-subject').forEach(btn => {
   btn.addEventListener("click", (e) => {

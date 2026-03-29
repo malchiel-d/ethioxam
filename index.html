@@ -3,10 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EUEE simulator</title>
+    <title>Ethioxam</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body>   
+    <div class="startConfrmOverlay" id="startConfrmOverlay">
+     <div class="startExamConfirm">
+       <div class="backToHome">
+        <button class="home-btn" id="backToHome">
+          <span class="X"></span>
+          <span class="Y"></span>
+          <div class="close">Close</div>
+        </button>
+      </div>
+      <div class="subjNameCont c">
+       <span id="subjectName">physics</span>
+      </div>
+      <div class="numOfQs c">
+       <span id="numOfQs">60</span><span>  questions</span>
+        <button class="btn startExamBtn">start</button>
+      </div>
+     </div>    
+       
+      </div>
         <div class="home">
       <div class="header">
         <div class="logo-container">
@@ -27,7 +46,7 @@
     <p>Choose your stream and test yourself with questions based on the latest curriculum.</p>
   </div>
 
-  <div class="stream-grid">
+  <div class="stream-grid">   
     <div class="stream-card active card">
       <div class="card-icon">🧪</div>
       <h3>Natural Science</h3>
@@ -61,12 +80,10 @@
       <footer>
         <p>&copy; 2026 Ethioxam. All rights reserved.</p>
       </footer>
-    </div>
-
-
+    </div>      
     <div class="quiz-wrapper" id="quiz-wrapper">
       <div class="backToHome">
-        <button class="home-btn" id="backToHome">
+        <button class="home-btn" id="quitQuizBtn">
           <span class="X"></span>
           <span class="Y"></span>
           <div class="close">Close</div>
@@ -95,8 +112,8 @@
           </div>
         </form>
         <a href="#" class="clear-choice" id="clearBtn">Clear my choice</a>
-      </div>
-
+      </div>   
+            
       <div class="nav-footer">
         <div class="left-btns">
           <button class="btn btn-prev" id="previousBtn">Previous</button>
@@ -113,7 +130,7 @@
         <button class="btn btn-restart" id="restartBtn">Back to Home</button>
       </div>
     </div>
-
+    
     <script src="script.js"></script>
     <script src="data/data.js"></script>
   </body>

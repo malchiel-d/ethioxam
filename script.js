@@ -4,6 +4,8 @@ let currentQuestionIndex = 0;
 let userAnswers = [];
 
 //ELEMENTS
+const startConfirm = document.querySelector('#startConfrmOverlay');
+const startExamBtn = document.querySelector('.startExamBtn');
 const quizWrapper = document.querySelector('#quiz-wrapper');
 const endScreen = document.querySelector('#endScreen');
 const home = document.querySelector('.home');
@@ -11,19 +13,32 @@ const form = document.querySelector("#quizForm");
 const clearBtn = document.querySelector('#clearBtn');
 const submitButton = document.querySelector('#submitBtn');
 const scoreSpan = document.querySelector('#scoreSpan');
-
 //Start Exam Logic
 document.querySelectorAll('.btn-subject').forEach(btn => {
   btn.addEventListener("click", (e) => {
     currentSubject = e.target.id;
     
-    //Check if we actually have questions for this subject
+    // Check if we actually have questions for this subject
     if (quizData[currentSubject]) {
-      startExam();
+      // Update the confirmation box with the subject name and number of questions
+      document.getElementById('subjectName').textContent = e.target.textContent.split(' -')[0];
+      document.getElementById('numOfQs').textContent = quizData[currentSubject].length;
+      
+      // Show the overlay
+      confirmStart(); 
     } else {
       alert("No questions found for " + currentSubject + " yet!");
     }
   });
+});
+
+//confirm start exam
+function confirmStart(){
+  startConfirm.style.display = "block";
+}
+startExamBtn.addEventListener("click", () => {
+  startConfirm.style.display = "none";
+  startExam();
 });
 
 function startExam() {
@@ -124,9 +139,25 @@ document.querySelector('#restartBtn').onclick = () => {
 };
 //back to home
 
-const backToHome = document.querySelector('#backToHome');
-backToHome.addEventListener("click",backtohome)
-function backtohome(){
-  quizWrapper.style.display = "none";
+// 1. Select the buttons
+const quitQuizBtn = document.querySelector('#quitQuizBtn');
+const backToHomeOverlay = document.querySelector('.startExamConfirm #backToHome');
+
+// 2. Logic for quitting an ACTIVE quiz
+quitQuizBtn.addEventListener("click", () => {
+  const confirmQuit = confirm("Are you sure you want to quit? Your progress will be lost.");
+  
+  if (confirmQuit) {
+    quizWrapper.style.display = "none";
+    home.style.display = "flex";
+    // Optional: reset quiz state
+    currentSubject = null;
+    userAnswers = [];
+  }
+});
+
+// 3. Logic for closing the START confirmation overlay (no confirmation needed)
+backToHomeOverlay.addEventListener("click", () => {
+  startConfirm.style.display = "none";
   home.style.display = "flex";
-}
+});

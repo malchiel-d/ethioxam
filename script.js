@@ -34,6 +34,7 @@ document.querySelectorAll('.btn-subject').forEach(btn => {
 
 //confirm start exam
 function confirmStart(){
+  document.body.classList.add('unscroll');
   startConfirm.style.display = "block";
 }
 startExamBtn.addEventListener("click", () => {
@@ -156,7 +157,7 @@ quitQuizBtn.addEventListener("click", () => {
   }
 });
 
-// 3. Logic for closing the START confirmation overlay (no confirmation needed)
+// 3. Logic for closing the START confirmation overlay
 backToHomeOverlay.addEventListener("click", () => {
   startConfirm.style.display = "none";
   home.style.display = "flex";

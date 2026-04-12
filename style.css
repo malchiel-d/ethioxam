@@ -54,9 +54,13 @@ body.unscroll{
   transition: color 0.3s ease;
 }
 
-.home .header nav a:hover {
-  color: #0056b3;
+/* --- Desktop Hovers --- */
+@media (hover: hover) {
+  .home .header nav a:hover {
+    color: #0056b3;
+  }
 }
+
 .page-section {
   width: 100%;
   padding: 80px 20px;
@@ -131,10 +135,13 @@ footer {
   align-items: center;
 }
 
-.stream-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0, 86, 179, 0.1);
-  border-color: #0056b3;
+/* --- Desktop Hovers --- */
+@media (hover: hover) {
+  .stream-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 86, 179, 0.1);
+    border-color: #0056b3;
+  }
 }
 
 .card-icon {
@@ -171,9 +178,12 @@ footer {
   transition: all 0.2s;
 }
 
-.btn-subject:hover {
-  background-color: #0056b3;
-  color: #fff;
+/* --- Desktop Hovers --- */
+@media (hover: hover) {
+  .btn-subject:hover {
+    background-color: #0056b3;
+    color: #fff;
+  }
 }
 
 .locked {
@@ -207,8 +217,11 @@ footer {
   transition: background 0.3s;
 }
 
-.stream-toggle:hover {
-  background: #f0f7ff;
+/* --- Desktop Hovers --- */
+@media (hover: hover) {
+  .stream-toggle:hover {
+    background: #f0f7ff;
+  }
 }
 
 .stream-content {
@@ -274,16 +287,22 @@ footer {
   transform: rotate(-45deg);
 }
 
-.home-btn:hover {
-  background-color: #0056b3;
+/* --- Desktop Hovers --- */
+@media (hover: hover) {
+  .home-btn:hover {
+    background-color: #0056b3;
+  }
+  .home-btn:hover .X,
+  .home-btn:hover .Y {
+    background-color: #fff;
+  }
+  .home-btn:hover > .close {
+    animation: close 0.2s forwards 0.5s;
+  }
 }
 
 .home-btn:active {
   transform: scale(0.95);
-}
-.home-btn:hover .X,
-.home-btn:hover .Y {
-  background-color: #fff;
 }
 
 .close {
@@ -304,10 +323,6 @@ footer {
   opacity: 0;
 }
 
-.home-btn:hover > .close {
-  animation: close 0.2s forwards 0.5s;
-}
-
 @keyframes close {
   100% {
     opacity: 1;
@@ -323,6 +338,49 @@ footer {
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(4px);
   display: none;
+}
+.exam-extras {
+  
+  width: 100%;
+  max-height: 400px;
+  background: #fdfdfd;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.exam-extras .instruction {
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  border-left: 4px solid #d9534f;
+  padding-left: 10px;
+}
+.exam-extras .paragraph {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+  font-style: italic;
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 4px;
+}
+.exam-extras .diagram {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background: #fff;
+}
+
+.exam-extras .diagram img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 .startExamConfirm{
   display: flex;
@@ -344,6 +402,9 @@ footer {
 }
 #numOfQs{
   color:#0056b3;
+}
+.startExamBtn{
+  display: block;
 }
 .question-card {
   background-color: #e7f3ff;
@@ -380,9 +441,14 @@ footer {
   color: #0056b3;
   text-decoration: none;
 }
-.clear-choice:hover {
-  text-decoration: underline;
+
+/* --- Desktop Hovers --- */
+@media (hover: hover) {
+  .clear-choice:hover {
+    text-decoration: underline;
+  }
 }
+
 .clear-choice:active {
   transform: scale(0.97);
 }
@@ -422,17 +488,22 @@ footer {
   color: #555;
   border: 1px solid #ccc;
 }
-.btn-prev:hover {
-  background-color: #e2e2e2;
+
+/* --- Desktop Hovers --- */
+@media (hover: hover) {
+  .btn-prev:hover {
+    background-color: #e2e2e2;
+  }
+  .btn-next:hover {
+    background-color: #004494;
+  }
 }
+
 .btn-prev:active {
   background-color: #d4d4d4;
 }
 .btn-next {
   background-color: #0056b3;
-}
-.btn-next:hover {
-  background-color: #004494;
 }
 
 .btn-next:active {
@@ -484,12 +555,17 @@ footer {
   background: #0056b3;
 }
 
-.btn-restart:hover {
-  background-color: #004494;
+/* --- Desktop Hovers --- */
+@media (hover: hover) {
+  .btn-restart:hover {
+    background-color: #004494;
+  }
 }
+
 .btn-restart:active {
   background-color: #003370;
 }
+
 @media screen and (max-width: 768px) {
   .home .header{
     justify-content: center;

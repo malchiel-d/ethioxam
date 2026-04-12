@@ -13,6 +13,13 @@ const form = document.querySelector("#quizForm");
 const clearBtn = document.querySelector('#clearBtn');
 const submitButton = document.querySelector('#submitBtn');
 const scoreSpan = document.querySelector('#scoreSpan');
+
+const examExtras = document.querySelector('#exam-extras');
+const instructionDiv = document.querySelector('.instruction');
+const paragraphDiv = document.querySelector('.paragraph');
+const diagramDiv = document.querySelector('.diagram');
+const diagramImg = document.querySelector('#diagramImage');
+
 //Start Exam Logic
 document.querySelectorAll('.btn-subject').forEach(btn => {
   btn.addEventListener("click", (e) => {
@@ -39,6 +46,7 @@ function confirmStart(){
 }
 startExamBtn.addEventListener("click", () => {
   startConfirm.style.display = "none";
+  document.body.classList.remove('unscroll');
   startExam();
 });
 
@@ -56,6 +64,38 @@ function startExam() {
 function render() {
   const questions = quizData[currentSubject];
   const currentQuestion = questions[currentQuestionIndex];
+  
+  //extras
+  examExtras.style.display = "none";
+  instructionDiv.style.display = "none";
+  paragraphDiv.style.display = "none";
+  diagramDiv.style.display = "none";
+
+  let hasExtras = false;
+
+  if (currentQuestion.instruction) {
+    instructionDiv.textContent = currentQuestion.instruction;
+    instructionDiv.style.display = "block";
+    hasExtras = true;
+  }
+
+  if (currentQuestion.paragraph) { 
+    paragraphDiv.innerHTML = `<p>${currentQuestion.paragraph}</p>`;
+    paragraphDiv.style.display = "block";
+    hasExtras = true;
+  }
+
+  if (currentQuestion.diagram) {
+    diagramImg.src = currentQuestion.diagram;
+    diagramDiv.style.display = "flex"
+    hasExtras = true;
+  }
+
+  if (hasExtras) {
+    examExtras.style.display = "flex";
+  }
+
+  
   const savedAnswer = userAnswers[currentQuestionIndex];
 
   form.reset();
